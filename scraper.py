@@ -66,7 +66,7 @@ async def process_advlist(browser, page):
     """
     adverts = await page.query_selector_all('#divMainResult .shell')
     for advert in adverts:
-        if len(ADVERTS) == 3:
+        if len(ADVERTS) == 60:
             return
 
         url = await advert.query_selector('a')

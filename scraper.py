@@ -57,6 +57,8 @@ async def main():
         await process_advlist(browser, page)
         await browser.close()
 
+        await append_json(ADVERTS)
+
 
 async def process_advlist(browser, page):
     """
@@ -64,8 +66,7 @@ async def process_advlist(browser, page):
     """
     adverts = await page.query_selector_all('#divMainResult .shell')
     for advert in adverts:
-        if len(ADVERTS) == 60:
-            await append_json(ADVERTS)
+        if len(ADVERTS) == 3:
             return
 
         url = await advert.query_selector('a')
